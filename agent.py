@@ -32,7 +32,7 @@ class NPassengersForecast:
         Returns:
             pd.Series: Index DateTime and passengers (float)
         """
-        df = self.preprocess() # This is used to plot to know from which point the forecasting is being predicted
+        df = self.preprocess()  # This is used to plot to know from which point the forecasting is being predicted
         predictions = self.predict(n_months)
         plot_forecasting(df.passengers, self.model, predictions, 'Damped HoltWinters', False, True)
         return predictions

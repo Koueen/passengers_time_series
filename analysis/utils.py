@@ -106,7 +106,7 @@ def plot_forecasting(
             mode='lines',
             name='Original',
             marker_color='rgb(196,166,44)',
-            opacity = 0.6,
+            opacity=0.6,
         )
     )
     fig.add_trace(
@@ -116,7 +116,7 @@ def plot_forecasting(
             mode='lines',
             name='Fitted Train',
             marker_color='rgb(56,41,131)',
-            opacity = 0.6,
+            opacity=0.6,
         )
     )
 
