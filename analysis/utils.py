@@ -106,15 +106,17 @@ def plot_forecasting(
             mode='lines',
             name='Original',
             marker_color='rgb(196,166,44)',
+            opacity = 0.6,
         )
     )
     fig.add_trace(
         go.Scatter(
-            x=model_fitted.fittedvalues.index.values,
-            y=model_fitted.fittedvalues.values,
+            x=model_fitted.fittedvalues.index.values[2:],
+            y=model_fitted.fittedvalues.values[2:],
             mode='lines',
             name='Fitted Train',
             marker_color='rgb(56,41,131)',
+            opacity = 0.6,
         )
     )
 
@@ -154,7 +156,7 @@ def plot_forecasting(
     fig.show()
 
 
-def get_metrics(model_fit, predictions, train_set, test_set):
+def get_metrics(model_fit, predictions, train_set, test_set, name):
     R2 = r2_score(train_set[2:], model_fit.fittedvalues[2:])
     mse_e = mean_squared_error(train_set[2:], model_fit.fittedvalues[2:])  # 2: due to differencing
     mae_e = mean_absolute_error(train_set[2:], model_fit.fittedvalues[2:])
@@ -167,7 +169,7 @@ def get_metrics(model_fit, predictions, train_set, test_set):
     print(
         pd.DataFrame(
             {
-                'Model': ['Holt-Winters', 'Holt-Winters'],
+                'Model': [name, name],
                 'Mode': ['Training', 'Testing'],
                 'R2': [R2, R2_test],
                 'MSE': [mse_e, mse_e_test],

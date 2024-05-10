@@ -12,7 +12,7 @@ from analysis.utils import plot_forecasting
 class NPassengersForecast:
     """Class used to forecast the number of passengers per month"""
 
-    def __init__(self, model_dir: str = 'model/holt_winters.pkl', data_dir: pd.DataFrame = 'data/flights.csv'):
+    def __init__(self, model_dir: str = 'model/sarima.pkl', data_dir: pd.DataFrame = 'data/flights.csv'):
         """Initialize NPassengersForecast
 
         Args:
@@ -75,5 +75,5 @@ class NPassengersForecast:
 
 if __name__ == '__main__':
     passgenerf = NPassengersForecast()
-    prediction = passgenerf(70)
+    prediction = passgenerf(100)
     print(prediction)
